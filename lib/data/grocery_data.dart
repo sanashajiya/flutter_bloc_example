@@ -1,7 +1,7 @@
 class GroceryData {
   static List<Map<String, dynamic>> groceryProducts = [
     {
-      'id': 1,
+      'id': '1',
       'name': 'Bananas',
       'description': 'A bunch of ripe bananas',
       'price': 0.99,
@@ -9,7 +9,7 @@ class GroceryData {
           'https://m.media-amazon.com/images/I/51ebZJ+DR4L._UF1000,1000_QL80_.jpg',
     },
     {
-      'id': 2,
+      'id': '2',
       'name': 'Apples',
       'description': 'A bag of fresh apples',
       'price': 1.49,
@@ -17,7 +17,7 @@ class GroceryData {
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQVgc8Z4MuUUMZRdNf0qGvDgWu016u02ARw&s',
     },
     {
-      'id': 3,
+      'id': '3',
       'name': 'Milk',
       'description': 'A gallon of whole milk',
       'price': 2.99,
@@ -25,7 +25,7 @@ class GroceryData {
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpZ2fMBpaHCCAxNoyrfUuK5y-bsjfqGO7v8A&s',
     },
     {
-      'id': 4,
+      'id': '4',
       'name': 'Bread',
       'description': 'A loaf of whole wheat bread',
       'price': 1.99,
@@ -33,7 +33,7 @@ class GroceryData {
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkOAIl9N99juE0LtiIPDWenkHcPr714Uh5sg&s',
     },
     {
-      'id': 5,
+      'id': '5',
       'name': 'Eggs',
       'description': 'A dozen fresh eggs',
       'price': 1.99,

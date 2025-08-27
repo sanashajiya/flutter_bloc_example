@@ -12,6 +12,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    homeBloc.add(HomeInitialEvent());
+    super.initState();
+  }
+
   final HomeBloc homeBloc = HomeBloc();
   @override
   Widget build(BuildContext context) {
@@ -33,28 +39,35 @@ class _HomeState extends State<Home> {
         }
       },
       builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.teal,
-            title: const Text('Grocery App'),
-
-            actions: [
-              IconButton(
-                onPressed: () {
-                  homeBloc.add(HomeWishlistButtonNavigateEvent());
-                },
-                icon: const Icon(Icons.favorite_border),
+        switch (state.runtimeType) {
+          case HomeLoadingState:
+            return Scaffold(body: Center(child: CircularProgressIndicator()));
+          case HomeLoadedSuccessState:
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.teal,
+                title: Text("Grocery App"),
+                actions: [
+                  IconButton(
+                    onPressed: () {
+                      homeBloc.add(HomeWishlistButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.favorite_border),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      homeBloc.add(HomeCartButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.shopping_bag_outlined),
+                  ),
+                ],
               ),
-              IconButton(
-                onPressed: () {
-                  homeBloc.add(HomeCartButtonNavigateEvent());
-                },
-                icon: const Icon(Icons.shopping_cart),
-              ),
-            ],
-          ),
-          body: const Center(child: Text('Home')),
-        );
+            );
+          case HomeErrorState:
+            return Scaffold(body: Center(child: Text("Error")));
+          default:
+            return SizedBox();
+        }
       },
     );
   }
